@@ -1,11 +1,11 @@
 package com.zerobase.fastlms.configuration;
 
+import com.zerobase.fastlms.history.service.HistoryService;
 import com.zerobase.fastlms.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,6 +20,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final MemberService memberService;
+    private final HistoryService historyService;
 
     @Bean
     PasswordEncoder getPasswordEncoder() {
@@ -29,6 +30,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     UserAuthenticationFailureHandler getFailureHandler() {
         return new UserAuthenticationFailureHandler();
+    }
+
+    // 로그인 성공시 동작하는 UserAuthenticationSuccessHandler 핸들러 추가
+    @Bean
+    UserAuthenticationSuccessHandler getSuccessHandler() {
+        return new UserAuthenticationSuccessHandler(historyService);
     }
     
     @Override
@@ -60,6 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/member/login")
                 .failureHandler(getFailureHandler())
+                .successHandler(getSuccessHandler()) // SuccessHandler 적용
                 .permitAll();
 
         http.logout()
