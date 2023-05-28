@@ -40,34 +40,6 @@ public class RequestUtils {
     }
 
     public static String getUserAgent(HttpServletRequest request) {
-        String agent = request.getHeader("User-Agent");
-        String brower = null;
-
-        if (agent != null) {
-//            if (agent.indexOf("Trident") > -1) {
-//                brower = "MSIE";
-//            } else if (agent.indexOf("Chrome") > -1) {
-//                brower = "Chrome";
-//            } else if (agent.indexOf("Opera") > -1) {
-//                brower = "Opera";
-//            } else if (agent.indexOf("iPhone") > -1 && agent.indexOf("Mobile") > -1) {
-//                brower = "iPhone";
-//            } else if (agent.indexOf("Android") > -1 && agent.indexOf("Mobile") > -1) {
-//                brower = "Android";
-//            }
-            if (agent.contains("Trident")) {
-                brower = "MSIE";
-            } else if (agent.contains("Chrome")) {
-                brower = "Chrome";
-            } else if (agent.contains("Opera")) {
-                brower = "Opera";
-            } else if (agent.contains("iPhone") && agent.contains("Mobile")) {
-                brower = "iPhone";
-            } else if (agent.contains("Android") && agent.contains("Mobile")) {
-                brower = "Android";
-            }
-        }
-
-        return brower;
+        return request.getHeader("User-Agent");
     }
 }
