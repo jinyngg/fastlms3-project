@@ -1,7 +1,7 @@
 package com.zerobase.fastlms.configuration;
 
 import com.zerobase.fastlms.history.service.HistoryService;
-import com.zerobase.fastlms.member.service.MemberService;
+import com.zerobase.fastlms.member.service.impl.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @Configuration
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final MemberService memberService;
+    private final MemberServiceImpl memberService;
     private final HistoryService historyService;
 
     @Bean
@@ -35,7 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     // 로그인 성공시 동작하는 UserAuthenticationSuccessHandler 핸들러 추가
     @Bean
     UserAuthenticationSuccessHandler getSuccessHandler() {
-        return new UserAuthenticationSuccessHandler(historyService);
+        return new UserAuthenticationSuccessHandler(historyService, memberService);
     }
     
     @Override

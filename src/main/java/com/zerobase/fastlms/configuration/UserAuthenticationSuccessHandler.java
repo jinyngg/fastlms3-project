@@ -2,6 +2,7 @@ package com.zerobase.fastlms.configuration;
 
 import com.zerobase.fastlms.history.entity.LoginHistory;
 import com.zerobase.fastlms.history.service.HistoryService;
+import com.zerobase.fastlms.member.service.impl.MemberServiceImpl;
 import com.zerobase.fastlms.util.RequestUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -12,14 +13,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @Slf4j
 public class UserAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
     private final HistoryService historyService;
+    private final MemberServiceImpl memberService;
 
-    public UserAuthenticationSuccessHandler(HistoryService historyService) {
+    public UserAuthenticationSuccessHandler(HistoryService historyService, MemberServiceImpl memberService) {
         this.historyService = historyService;
+        this.memberService = memberService;
     }
 
     @Override
@@ -39,6 +43,7 @@ public class UserAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
                 .build();
 
         historyService.saveLogOnLogin(loginHistory);
+        memberService.updateLastLoginDt(userId, LocalDateTime.now());
 
         if (null != loginHistory) {
             log.info("=== Login Log Save ===");
