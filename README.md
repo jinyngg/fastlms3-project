@@ -22,10 +22,14 @@
 
 ## 1️⃣ 요구사항
 
-✅ 회원 로그인시 로그인 히스토리(로그) 기능
+✅ 회원 로그인시 로그인 히스토리(로그) 기능 ```완료```
 - 로그인 히스토리 테이블(login_history)에 로그인 아이디와 로그인 날짜, 접속 IP, 접속 UserAgent를 저장
 
 ![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/7aedc6bf-d529-4a5b-8faa-69bd69dbc711)
+
+```첨부```
+![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/3feb3636-55f6-452a-8250-977d411d57f4)
+
 
 ✅ 관리자 회원 상세 정보에 로그인 목록 보기 기능 <br>
 
