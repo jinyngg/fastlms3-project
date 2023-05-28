@@ -39,6 +39,13 @@ public class UserAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
                 .build();
 
         historyService.saveLogOnLogin(loginHistory);
+
+        if (null != loginHistory) {
+            log.info("=== Login Log Save ===");
+            log.info("User Id = " + loginHistory.getUserId() + ", User Agent = " + loginHistory.getUserAgent() + ", User Ip = " + loginHistory.getClientIp() + ", Last Access Date = " + loginHistory.getLoginDt().toLocalDate());
+
+        }
+
         super.onAuthenticationSuccess(request, response, authentication);
     }
 }
