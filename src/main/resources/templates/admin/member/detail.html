@@ -98,7 +98,45 @@
 
         <div>
             <a href="list.do"> 목록 </a>
+        </div>
 
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th>
+                        NO
+                    </th>
+                    <th>
+                        로그인 일자
+                    </th>
+                    <th>
+                        접속 IP
+                    </th>
+                    <th>
+                        접속 UserAgent
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="loginHistory : ${loginHistories}">
+                    <td th:text="${loginHistory.id}">
+                        1
+                    </td>
+                    <td>
+                        <p th:text="${loginHistory.loginDt}">
+                            2023.01.01
+                        </p>
+                    </td>
+                    <td th:text="${loginHistory.clientIp}">
+                        127.0.0.1
+                    </td>
+                    <td th:text="${loginHistory.userAgent}">
+                        Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
 
 
