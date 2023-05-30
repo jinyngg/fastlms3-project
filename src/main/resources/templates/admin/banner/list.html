@@ -38,10 +38,10 @@
 <div class="list">
 
     <div class="buttons">
-        <p class="total-count">전체 <span th:text="${totalCount}"></span>개</p>
+<!--        <p class="total-count">전체 <span th:text="${totalCount}"></span>개</p>-->
 
         <a href="/admin/banner/add.do"> 배너 등록 </a>
-        <button id="deleteButton" type="button"> 선택 삭제 </button>
+<!--        <button id="deleteButton" type="button"> 선택 삭제 </button>-->
     </div>
 
     <table>
@@ -62,33 +62,44 @@
             </th>
         </tr>
         </thead>
-        <tbody>
-<!--        <td>-->
-<!--            <input type="checkbox" th:value="${x.id}" />-->
-<!--        </td>-->
-<!--        <td th:text="${x.seq}">1</td>-->
-<!--        <td>-->
-<!--            <p th:text="${x.regDt}">배너명</p>-->
-<!--        </td>-->
-<!--        <td>-->
-<!--            <p th:text="${x.regDt}">이미지</p>-->
-<!--        </td>-->
-<!--        <td>-->
-<!--            <p th:text="${x.regDt}">2021.01.01</p>-->
-<!--        </td>-->
+        <tbody id="dataLIst">
+<!--        <tr th:each="x : ${list}">-->
+<!--            <td>-->
+<!--                <input type="checkbox" th:text="${x.id}" />-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <p th:text="${loginHistory.loginDt}">-->
+<!--                    2023.01.01-->
+<!--                </p>-->
+<!--            </td>-->
+<!--            <td th:text="${loginHistory.clientIp}">-->
+<!--                127.0.0.1-->
+<!--            </td>-->
+<!--            <td th:text="${loginHistory.userAgent}">-->
+<!--                Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36-->
+<!--            </td>-->
+<!--        </tr>-->
+            <tr th:each="x : ${list}">
+                <td>
+                    <input type="checkbox" th:value="${x.id}" />
+                </td>
+                <td>
+                    <p th:text="${x.id}" />
+                </td>
+                <td>
+                    <p th:text="${x.bannerName}">배너명</p>
+                </td>
+                <td>
+                    <img th:src="@{${x.imagePath}}">
+                </td>
+                <td>
+                    <p th:text="${x.regDt}">2021.01.01</p>
+                </td>
+            </tr>
         </tbody>
     </table>
 
 </div>
-
-
-<form name="updateForm" method="post" action="/admin/category/update.do">
-    <input type="hidden" name="id"/>
-    <input type="hidden" name="categoryName"/>
-    <input type="hidden" name="sortValue"/>
-    <input type="hidden" name="usingYn" />
-</form>
-
 
 </body>
 </html>

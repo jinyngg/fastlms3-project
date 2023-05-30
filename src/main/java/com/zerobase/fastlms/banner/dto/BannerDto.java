@@ -1,14 +1,17 @@
 package com.zerobase.fastlms.banner.dto;
 
+import com.zerobase.fastlms.admin.model.CommonParam;
 import com.zerobase.fastlms.banner.entity.Banner;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BannerDto {
+public class BannerDto extends CommonParam {
 
     private Long id;
     private String bannerName; // 배너명
@@ -18,6 +21,10 @@ public class BannerDto {
     private String target; // 클릭 시 이동하는 창의 타겟 정보 (새 창인지, 현재 창 이동인지)
     private String bannerOrder; // 배너의 정렬 순서
     private boolean isDisplayed; // 프론트에 표시 여부 정보
+    private LocalDateTime regDt;
+
+//    long totalCount;
+//    long seq;
 
     public static Banner toEntity(BannerDto bannerDto) {
         return Banner.builder()
@@ -29,6 +36,7 @@ public class BannerDto {
                 .target(bannerDto.getTarget())
                 .bannerOrder(bannerDto.getBannerOrder())
                 .isDisplayed(bannerDto.isDisplayed())
+//                .regDt(bannerDto.getRegDt())
                 .build();
     }
 
@@ -42,6 +50,7 @@ public class BannerDto {
                 .target(banner.getTarget())
                 .bannerOrder(banner.getBannerOrder())
                 .isDisplayed(banner.isDisplayed())
+//                .regDt(banner.getRegDt())
                 .build();
     }
 }

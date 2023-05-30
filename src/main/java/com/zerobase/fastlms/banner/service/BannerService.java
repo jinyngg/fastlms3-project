@@ -17,8 +17,9 @@ public class BannerService {
     private final BannerRepository bannerRepository;
 
     @Transactional
-    public List<BannerDto> getBanners() {
+    public List<BannerDto> list() {
         List<Banner> banners = bannerRepository.findAll();
+
         return banners.stream()
                 .map(BannerDto::fromEntity)
                 .collect(Collectors.toList());
@@ -34,6 +35,7 @@ public class BannerService {
                 .target(bannerDto.getTarget())
                 .bannerOrder(bannerDto.getBannerOrder())
                 .isDisplayed(bannerDto.isDisplayed())
+//                .regDt(LocalDateTime.now())
                 .build();
 
         System.out.println("banner = " + banner);
