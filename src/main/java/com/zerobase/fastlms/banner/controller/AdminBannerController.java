@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,13 +33,14 @@ public class AdminBannerController {
     }
 
     @GetMapping("/admin/banner/add.do")
-    public String add(Model model) {
+    public String add() {
         return "admin/banner/add";
     }
 
     @PostMapping("/admin/banner/add.do")
-    public String addSubmit(Model model, HttpServletRequest request
-            , MultipartFile file
+    public String addSubmit(
+//            Model model, HttpServletRequest request,
+            MultipartFile file
             , BannerDto bannerDto) {
 
         String saveFilename = "";
