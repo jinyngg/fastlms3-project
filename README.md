@@ -22,33 +22,25 @@
 
 ## 1️⃣ 요구사항
 
-✅ 회원 로그인시 로그인 히스토리(로그) 기능 ```완료```
+
+### ✅ 회원 로그인시 로그인 히스토리(로그) 기능 
+
 - 로그인 히스토리 테이블(login_history)에 로그인 아이디와 로그인 날짜, 접속 IP, 접속 UserAgent를 저장
 
-![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/7aedc6bf-d529-4a5b-8faa-69bd69dbc711)
+![save_login_log](https://github.com/jinyngg/fastlms3-project/assets/96164211/5113f2c2-2fdb-4c03-a362-b9a204b8224d)
 
-```첨부```
-![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/3feb3636-55f6-452a-8250-977d411d57f4)
+```완료```
 
+### ✅ 관리자 회원 상세 정보에 로그인 목록 보기 기능
 
-✅ 관리자 회원 상세 정보에 로그인 목록 보기 기능 <br>
+![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/869a0ef0-bcd9-40e4-ab7c-66639043403f)
 
-![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/60f62e0f-1342-473a-a250-0180fa389360)
+![detail_add_login_history](https://github.com/jinyngg/fastlms3-project/assets/96164211/f7b4d07a-a999-40a9-8c00-ac5ccb3a2545)
 
+```완료```
 
-
-✅ 배너관리(백오피스 기능)
+### ✅ 배너관리(백오피스 기능)
 - 배너 등록 기능은 배너 이미지 파일, 배너 Alter텍스트(대체 텍스트), 배너 링크 했을때 이동하는 URL정보, 클릭시Target정보(새창인지, 현재창 이동인지), 정렬순서, 프론트 표시 여부 정보가 저장
 
-![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/af858913-04d2-452a-99f6-b4a823f3a274)
-
-![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/d64f8efc-1752-4447-abe8-11ca5c42ae97)
-
-![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/4e2a7751-c962-4975-938b-1e42e20c5c3c)
-
-
-✅ 프론트 배너 노출 기능
+### ✅ 프론트 배너 노출 기능
 - 프론트에 위 내용을 근거로 해서 기능이 구현
-
-![image](https://github.com/jinyngg/fastlms3-project/assets/96164211/b0ab9cb6-6711-4aac-8ffb-fa1cee99a580)
-
