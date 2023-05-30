@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 화면 </title>
+    <style>
+        .list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .list table th, .list table td {
+            border:solid 1px #000;
+        }
+
+        p.nothing {
+            text-align: center;
+            padding: 100px;
+        }
+
+        .inline-div {
+            display: inline-block;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+
+
+        });
+    </script>
+</head>
+<body>
+<div th:replace="/fragments/layout.html :: fragment-admin-body-menu"></div>
+<h1>배너 관리</h1>
+
+
+<div class="list">
+
+    <div class="buttons">
+        <p class="total-count">전체 <span th:text="${totalCount}"></span>개</p>
+
+        <a href="/admin/banner/add.do"> 배너 등록 </a>
+        <button id="deleteButton" type="button"> 선택 삭제 </button>
+    </div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>
+                <input id="selectAll" type="checkbox" />
+            </th>
+            <th> NO </th>
+            <th>
+                배너명
+            </th>
+            <th>
+                이미지
+            </th>
+            <th>
+                등록일
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+<!--        <td>-->
+<!--            <input type="checkbox" th:value="${x.id}" />-->
+<!--        </td>-->
+<!--        <td th:text="${x.seq}">1</td>-->
+<!--        <td>-->
+<!--            <p th:text="${x.regDt}">배너명</p>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <p th:text="${x.regDt}">이미지</p>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <p th:text="${x.regDt}">2021.01.01</p>-->
+<!--        </td>-->
+        </tbody>
+    </table>
+
+</div>
+
+
+<form name="updateForm" method="post" action="/admin/category/update.do">
+    <input type="hidden" name="id"/>
+    <input type="hidden" name="categoryName"/>
+    <input type="hidden" name="sortValue"/>
+    <input type="hidden" name="usingYn" />
+</form>
+
+
+</body>
+</html>
